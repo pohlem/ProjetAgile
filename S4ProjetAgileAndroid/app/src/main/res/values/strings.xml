@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">S4ProjetAgile</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_menu_client">menu_client</string>
-</resources>
