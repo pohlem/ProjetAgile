@@ -18,10 +18,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/nomCompte"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="49dp"
         android:hint="Nom de Compte"
-        android:onClick="onInscrire" />
+        android:layout_above="@+id/mdp"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -29,21 +28,21 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/mdp"
-        android:layout_below="@+id/nomCompte"
         android:hint="Mot de passe"
-        android:layout_alignRight="@+id/nomCompte"
-        android:layout_alignEnd="@+id/nomCompte"
+        android:layout_above="@+id/Connect"
         android:layout_alignLeft="@+id/nomCompte"
-        android:layout_alignStart="@+id/nomCompte" />
+        android:layout_alignStart="@+id/nomCompte"
+        android:layout_alignRight="@+id/nomCompte"
+        android:layout_alignEnd="@+id/nomCompte" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Se Connecter"
         android:id="@+id/Connect"
-        android:layout_below="@+id/mdp"
-        android:layout_centerHorizontal="true"
-        android:onClick="onConnect" />
+        android:onClick="onConnect"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"

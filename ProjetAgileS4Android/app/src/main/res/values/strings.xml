@@ -4,4 +4,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_menu">menu</string>
+    <string name="title_activity_inscription">inscription</string>
+    <string name="title_activity_menu_admin">menu_admin</string>
+    <string name="title_activity_mon_compte">monCompte</string>
+    <string name="title_activity_commande">Commande</string>
 </resources>
