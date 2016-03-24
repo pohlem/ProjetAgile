@@ -8,6 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.volley.*;
+import com.android.volley.toolbox.*;
+
 public class PageAcceuilActivity extends AppCompatActivity {
 
     @Override
