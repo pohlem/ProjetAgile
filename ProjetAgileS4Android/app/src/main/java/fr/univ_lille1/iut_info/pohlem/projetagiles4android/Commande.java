@@ -12,6 +12,11 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+
 public class Commande extends AppCompatActivity {
 
     @Override
@@ -46,7 +51,7 @@ public class Commande extends AppCompatActivity {
         TextView tvNumero = (TextView) findViewById(R.id.Numéro);
         TextView tvAdresse = (TextView) findViewById(R.id.Adresse);
         TextView tvCodePostal = (TextView) findViewById(R.id.codePostal);
-            AlertDialog.Builder dlgAlert = new AlertDialog.Builder(this);
+        AlertDialog.Builder dlgAlert = new AlertDialog.Builder(this);
         if(tvNumero.getText().toString().equals("") || tvAdresse.getText().toString().equals("")
                 || tvCodePostal.getText().toString().equals("") || tvTotal.getText().toString().equals("") ) {
             dlgAlert.setMessage("Problème d'informations");
@@ -66,12 +71,33 @@ public class Commande extends AppCompatActivity {
         dlgAlert.setCancelable(true);
         dlgAlert.create().show();
     }
-    public void calculPrix(View view) {
+    public void calculPrix(View view) throws Exception{
 
         TextView tvTotal = (TextView) findViewById(R.id.total);
+        TextView tvNumero = (TextView) findViewById(R.id.Numéro);
+        TextView tvAdresse = (TextView) findViewById(R.id.Adresse);
+        TextView tvCodePostal = (TextView) findViewById(R.id.codePostal);
+        sys
+        URL u = new URL("http://www.mapquestapi.com/directions/v2/route?key=43mLZhGUGd7mxngbQfGUdHsv5ECAGjev&from=Lille&to="+tvNumero.getText()+" "+tvAdresse.getText()+","+tvCodePostal.getText()+"&callback=renderNarrative&unit=k");
+        URLConnection c = u.openConnection();
+        BufferedReader in = new BufferedReader(new InputStreamReader(
+                c.getInputStream()));
+        String inputLine;
+        String mapQuest= "";
+        double p = 0;
+        while ((inputLine = in.readLine()) != null){
+            mapQuest += inputLine;
+            if(inputLine.contains("distance")){
+                String [] ok = inputLine.split("\"distance\":");
+                ok = ok[1].split(",");
+                p = Double.parseDouble(ok[0]);
+            }
+        }
+        in.close();
         double prix = 0.00;
+        prix+= (int) p*0.07;
         tvTotal.setText(prix+"€");
     }
 
-    }
+}
 
