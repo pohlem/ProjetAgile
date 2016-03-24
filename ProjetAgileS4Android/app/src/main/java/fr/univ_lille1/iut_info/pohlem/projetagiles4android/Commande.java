@@ -43,15 +43,16 @@ public class Commande extends AppCompatActivity {
     }
     public void createCommande(View view){
         TextView tvTotal = (TextView) findViewById(R.id.total);
-        if(tvTotal.getText().toString()=="") {
+        TextView tvNumero = (TextView) findViewById(R.id.Numéro);
+        TextView tvAdresse = (TextView) findViewById(R.id.Adresse);
+        TextView tvCodePostal = (TextView) findViewById(R.id.codePostal);
             AlertDialog.Builder dlgAlert = new AlertDialog.Builder(this);
-            dlgAlert.setMessage("Problème d'information");
+        if(tvNumero.getText().toString().equals("") || tvAdresse.getText().toString().equals("")
+                || tvCodePostal.getText().toString().equals("") || tvTotal.getText().toString().equals("") ) {
+            dlgAlert.setMessage("Problème d'informations");
             dlgAlert.setTitle("Informations");
             dlgAlert.setPositiveButton("Ok",null);
-            dlgAlert.setCancelable(true);
-            dlgAlert.create().show();
         } else {
-            AlertDialog.Builder dlgAlert = new AlertDialog.Builder(this);
             dlgAlert.setMessage("La commande  a été créé !");
             dlgAlert.setTitle("Création Commande ");
             dlgAlert.setPositiveButton("Ok",
@@ -61,11 +62,12 @@ public class Commande extends AppCompatActivity {
                             Commande.this.startActivity(intentMain);
                         }
                     });
-            dlgAlert.setCancelable(true);
-            dlgAlert.create().show();
         }
+        dlgAlert.setCancelable(true);
+        dlgAlert.create().show();
     }
     public void calculPrix(View view) {
+
         TextView tvTotal = (TextView) findViewById(R.id.total);
         double prix = 0.00;
         tvTotal.setText(prix+"€");
