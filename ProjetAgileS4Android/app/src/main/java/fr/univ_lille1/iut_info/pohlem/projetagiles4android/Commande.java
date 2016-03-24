@@ -77,7 +77,6 @@ public class Commande extends AppCompatActivity {
         TextView tvNumero = (TextView) findViewById(R.id.Numéro);
         TextView tvAdresse = (TextView) findViewById(R.id.Adresse);
         TextView tvCodePostal = (TextView) findViewById(R.id.codePostal);
-        sys
         URL u = new URL("http://www.mapquestapi.com/directions/v2/route?key=43mLZhGUGd7mxngbQfGUdHsv5ECAGjev&from=Lille&to="+tvNumero.getText()+" "+tvAdresse.getText()+","+tvCodePostal.getText()+"&callback=renderNarrative&unit=k");
         URLConnection c = u.openConnection();
         BufferedReader in = new BufferedReader(new InputStreamReader(

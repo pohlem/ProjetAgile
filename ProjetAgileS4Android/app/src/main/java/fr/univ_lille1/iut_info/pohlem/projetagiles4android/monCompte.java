@@ -40,7 +40,7 @@ public class monCompte extends AppCompatActivity {
     }
     public void enregistrer(View view){
         AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
-        dlgAlert.setMessage("Enregistrement Validé !");
+        dlgAlert.setMessage("Enregistrement ValidÃ© !");
         dlgAlert.setPositiveButton("Ok",null);
         dlgAlert.setCancelable(true);
         dlgAlert.create().show();

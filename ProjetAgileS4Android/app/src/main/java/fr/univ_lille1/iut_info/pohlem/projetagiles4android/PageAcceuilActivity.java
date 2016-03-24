@@ -1,15 +1,20 @@
 package fr.univ_lille1.iut_info.pohlem.projetagiles4android;
+
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.*;
 
-import com.android.volley.*;
-import com.android.volley.toolbox.*;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 
 public class PageAcceuilActivity extends AppCompatActivity {
 
@@ -41,10 +46,9 @@ public class PageAcceuilActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void onConnect(View view){
-        System.out.println("ok");
         TextView tvNom = (TextView) findViewById(R.id.nomCompte);
         TextView tvMdp = (TextView) findViewById(R.id.mdp);
-        if(tvNom.getText()=="admin"&&tvMdp.getText()=="admin") {
+        if(tvNom.getText().toString().equals("a")&&tvMdp.getText().toString().equals("a")) {
             Intent intentMain = new Intent(PageAcceuilActivity.this ,
                     menu_admin.class);
             PageAcceuilActivity.this.startActivity(intentMain);
