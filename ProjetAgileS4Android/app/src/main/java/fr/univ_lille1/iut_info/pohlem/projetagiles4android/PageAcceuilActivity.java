@@ -27,6 +27,7 @@ public class PageAcceuilActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        menu.add("test");
         getMenuInflater().inflate(R.menu.menu_page_acceuil, menu);
         return true;
     }

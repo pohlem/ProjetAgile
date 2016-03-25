@@ -36,6 +36,10 @@
         <activity
             android:name=".mes_commandes"
             android:label="@string/title_activity_mes_commandes" />
+        <activity
+            android:name=".admin_clients"
+            android:label="@string/title_activity_admin_clients" />
+        <activity android:name=".admin_commandes"></activity>
     </application>
 
 </manifest>
