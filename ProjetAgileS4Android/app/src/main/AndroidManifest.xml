@@ -39,7 +39,11 @@
         <activity
             android:name=".admin_clients"
             android:label="@string/title_activity_admin_clients" />
-        <activity android:name=".admin_commandes"></activity>
+        <activity android:name=".admin_commandes" />
+        <activity android:name=".admin_planning" />
+        <activity android:name=".admin_services" />
+        <activity android:name=".admin_points_retraits" />
+        <activity android:name=".admin_tableau_bord"></activity>
     </application>
 
 </manifest>

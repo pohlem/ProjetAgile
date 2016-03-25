@@ -31,17 +31,9 @@ public class admin_clients extends AppCompatActivity {
 
     private void load() {
 
-        HttpStack stack = new HurlStack() {
+        RequestQueue queue = Volley.newRequestQueue(this);
 
-            @Override
-            protected HttpURLConnection createConnection(URL url) throws IOException {
-                Proxy proxy = new Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved("cache.univ-lille1.fr", 3128));
-                return (HttpURLConnection) url.openConnection();
-            }
-        };
-        RequestQueue queue = Volley.newRequestQueue(this, stack);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.43.73:8080/v1/userdb",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://51.254.167.75/v1/userdb",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String json) {

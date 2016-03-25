@@ -18,5 +18,6 @@
     <string name="button_admin_points_retraits">Points de retrait</string>
     <string name="button_admin_tableau_de_bord">Tableau de bord</string>
     <string name="err">Erreur</string>
+    <string name="button_mon_compte">Mon compte</string>
 
 </resources>

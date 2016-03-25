@@ -35,17 +35,11 @@ public class admin_commandes extends AppCompatActivity {
     }
     private void load() {
 
-        HttpStack stack = new HurlStack() {
+        RequestQueue queue = Volley.newRequestQueue(this);
 
-            @Override
-            protected HttpURLConnection createConnection(URL url) throws IOException {
-                Proxy proxy = new Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved("cache.univ-lille1.fr", 3128));
-                return (HttpURLConnection) url.openConnection();
-            }
-        };
-        RequestQueue queue = Volley.newRequestQueue(this, stack);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.43.73:8080/v1/commanddb",
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://51.254.167.75/v1/commanddb",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String json) {
@@ -58,7 +52,17 @@ public class admin_commandes extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(admin_commandes.this, "ERROR: " + error, Toast.LENGTH_SHORT).show();
             }
-        });
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> headers = new HashMap<>();
+                String creds = String.format("%s:%s","admin","admin");
+                String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
+                headers.put("Authorization", auth);
+                return headers;
+            }
+
+        };
         queue.add(stringRequest);
     }
 }

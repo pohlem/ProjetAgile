@@ -66,4 +66,28 @@ public class menu_admin extends AppCompatActivity {
         this.startActivity(intentMain);
     }
 
+    public void voirPlanning(View view){
+        Intent intentMain = new Intent(this, admin_planning.class);
+        this.startActivity(intentMain);
+    }
+
+    public void voirServices(View view){
+        Intent intentMain = new Intent(this, admin_services.class);
+        this.startActivity(intentMain);
+    }
+
+    public void VoirPointsRetraits(View view){
+        Intent intentMain = new Intent(this, admin_points_retraits.class);
+        this.startActivity(intentMain);
+    }
+
+    public void voirTableauBord(View view){
+        Intent intentMain = new Intent(this, admin_tableau_bord.class);
+        this.startActivity(intentMain);
+    }
+
+    public void voirCompte(View view){
+        Intent intentMain = new Intent(this, monCompte.class);
+        this.startActivity(intentMain);
+    }
 }

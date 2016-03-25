@@ -59,4 +59,13 @@
         android:layout_below="@+id/pointsRetraits"
         android:layout_centerHorizontal="true"
         android:onClick="voirTableauBord" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_mon_compte"
+        android:id="@+id/compte"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="voirCompte" />
 </RelativeLayout>
