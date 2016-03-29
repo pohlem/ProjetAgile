@@ -10,8 +10,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PageAcceuilActivity"
-            android:label="@string/title_activity_accueil">
+            android:name=".connexion"
+            android:label="@string/title_connexion">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

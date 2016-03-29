@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Login :"
+        android:text="@string/login"
         android:id="@+id/textView3"
         android:gravity="center_vertical"
         android:layout_alignTop="@+id/login"
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Mot de Passe :"
+        android:text="@string/passwd"
         android:id="@+id/textView4"
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
@@ -56,7 +56,7 @@
         android:id="@+id/creerCompte"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="onCreate"
+        android:onClick="onNewUser"
         android:nestedScrollingEnabled="true" />
 
     <TextView
@@ -67,4 +67,25 @@
         android:id="@+id/textView5"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/name"
+        android:id="@+id/textView12"
+        android:gravity="center_vertical"
+        android:layout_alignBottom="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView4" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:layout_below="@+id/mdp"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_alignRight="@+id/mdp"
+        android:layout_alignEnd="@+id/mdp" />
 </RelativeLayout>

@@ -9,10 +9,18 @@ import android.view.View;
 
 public class menu extends AppCompatActivity {
 
+    String login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        Bundle bundle = getIntent().getExtras();
+        login = bundle.getString("login");
+        if (login == null) {
+            Intent intentMain = new Intent(menu.this, connexion.class);
+            menu.this.startActivity(intentMain);
+        }
     }
 
     @Override
@@ -38,10 +46,12 @@ public class menu extends AppCompatActivity {
     }
     public void onMyCompte(View view){
         Intent intentMain = new Intent(menu.this, monCompte.class);
+        intentMain.putExtra("login", login);
         menu.this.startActivity(intentMain);
     }
     public void passerCommande(View view){
         Intent intentMain = new Intent(menu.this, Commande.class);
+        intentMain.putExtra("login", login);
         menu.this.startActivity(intentMain);
     }
 }

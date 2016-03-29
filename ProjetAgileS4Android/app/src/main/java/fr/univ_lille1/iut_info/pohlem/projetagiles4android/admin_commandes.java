@@ -37,8 +37,6 @@ public class admin_commandes extends AppCompatActivity {
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
-
-
         StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://51.254.167.75/v1/commanddb",
                 new Response.Listener<String>() {
                     @Override
