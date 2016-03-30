@@ -1,9 +1,11 @@
 package fr.univ_lille1.iut_info.pohlem.projetagiles4android;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -40,7 +42,7 @@ public class admin_commandes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_commandes);
-
+/*
         lv = (ListView) findViewById(R.id.listViewCommandes);
         cmds = new ArrayList<>();
         values = new ArrayList<>();
@@ -48,16 +50,27 @@ public class admin_commandes extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, values);
         lv.setAdapter(mAdapter);
 
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(admin_commandes.this, voir_commande.class);
+                intent.putExtra("id", cmds.get(i).getId());
+                intent.putExtra("details", cmds.get(i).getDetails());
+                startActivity(intent);
+            }
+        });
+*/
         load();
     }
     private void load() {
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, getResources().getString(R.string.url) + getResources().getString(R.string.urlUser) +"?t=" + new Date().getTime(),
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, getResources().getString(R.string.url) + getResources().getString(R.string.urlCommand) +"?t=" + new Date().getTime(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String json) {
+                        /*
                         final Gson gson = new GsonBuilder().create();
 
                         Type listType = new TypeToken<List<Cmd>>() {
@@ -73,13 +86,25 @@ public class admin_commandes extends AppCompatActivity {
 
                         lv.invalidateViews();
                         mAdapter.notifyDataSetChanged();
+                        */
+                        ((TextView) findViewById(R.id.tvCommande)).setText(json);
+
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(admin_commandes.this, "ERROR: " + error, Toast.LENGTH_SHORT).show();
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> headers = new HashMap<>();
+                String creds = String.format("%s:%s","admin","admin");
+                String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
+                headers.put("Authorization", auth);
+                return headers;
+            }
+        };
         queue.add(stringRequest);
     }
 }

@@ -7,12 +7,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="fr.univ_lille1.iut_info.pohlem.projetagiles4android.admin_commandes">
+    tools:context="fr.univ_lille1.iut_info.pohlem.projetagiles4android.voir_commande">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvCommande"
+        android:id="@+id/commande"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

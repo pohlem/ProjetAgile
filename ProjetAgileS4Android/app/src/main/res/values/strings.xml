@@ -20,12 +20,12 @@
     <string name="deco">Déconnexion</string>
     <string name="login">Login :</string>
     <string name="passwd">Mot de passe :</string>
+    <string name="addr">Adresse :</string>
     <string name="name">Nom :</string>
     <string name="adress">Adresse : </string>
     <string name="url">http://51.254.167.75/v1/</string>
     <string name="urlUser">userdb/</string>
     <string name="urlLogin">secure/onlylogged</string>
-    <string name="urlCommand">commanddb</string>
-    <string name="addr">Adresse :</string>
+    <string name="urlCommand">commanddb/</string>
 
 </resources>

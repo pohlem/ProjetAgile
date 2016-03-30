@@ -43,7 +43,8 @@
         <activity android:name=".admin_planning" />
         <activity android:name=".admin_services" />
         <activity android:name=".admin_points_retraits" />
-        <activity android:name=".admin_tableau_bord"></activity>
+        <activity android:name=".admin_tableau_bord" />
+        <activity android:name=".voir_commande"></activity>
     </application>
 
 </manifest>
