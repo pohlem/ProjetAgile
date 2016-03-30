@@ -1,8 +1,8 @@
 package fr.univ_lille1.iut_info.pohlem.projetagiles4android;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,6 +52,10 @@ public class menu extends AppCompatActivity {
     public void passerCommande(View view){
         Intent intentMain = new Intent(menu.this, Commande.class);
         intentMain.putExtra("login", login);
+        menu.this.startActivity(intentMain);
+    }
+    public void doDeco(View view){
+        Intent intentMain = new Intent(menu.this, connexion.class);
         menu.this.startActivity(intentMain);
     }
 }

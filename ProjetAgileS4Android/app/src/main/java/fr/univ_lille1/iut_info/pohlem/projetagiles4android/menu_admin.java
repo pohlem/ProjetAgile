@@ -1,30 +1,11 @@
 package fr.univ_lille1.iut_info.pohlem.projetagiles4android;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpStack;
-import com.android.volley.toolbox.HurlStack;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.URL;
-import java.util.Map;
 
 public class menu_admin extends AppCompatActivity {
 
@@ -88,6 +69,11 @@ public class menu_admin extends AppCompatActivity {
 
     public void voirCompte(View view){
         Intent intentMain = new Intent(this, monCompte.class);
+        intentMain.putExtra("login", getIntent().getStringExtra("login"));
         this.startActivity(intentMain);
+    }
+    public void doDeco(View view){
+        Intent intentMain = new Intent(menu_admin.this, connexion.class);
+        menu_admin.this.startActivity(intentMain);
     }
 }

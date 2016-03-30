@@ -9,14 +9,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="fr.univ_lille1.iut_info.pohlem.projetagiles4android.admin_commandes">
 
-    <EditText
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/affichageCommandes"
+        android:id="@+id/listViewCommandes"
+        android:choiceMode="none"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -44,6 +44,7 @@
         android:id="@+id/button_deco"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/accederCommandes"
-        android:layout_alignEnd="@+id/accederCommandes" />
+        android:layout_alignEnd="@+id/accederCommandes"
+        android:onClick="doDeco" />
 
 </RelativeLayout>

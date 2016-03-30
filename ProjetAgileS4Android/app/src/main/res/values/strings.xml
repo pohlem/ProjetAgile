@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">Take &amp; Wash</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Paramètres</string>
-    <string name="title_connexion">Connexion</string>
+    <string name="title_connexion">Take &amp; Wash</string>
     <string name="title_activity_menu">Menu</string>
     <string name="title_activity_inscription">Inscription</string>
     <string name="title_activity_menu_admin">Menu Admin</string>
@@ -24,5 +22,10 @@
     <string name="passwd">Mot de passe :</string>
     <string name="name">Nom :</string>
     <string name="adress">Adresse : </string>
+    <string name="url">http://51.254.167.75/v1/</string>
+    <string name="urlUser">userdb/</string>
+    <string name="urlLogin">secure/onlylogged</string>
+    <string name="urlCommand">commanddb</string>
+    <string name="addr">Adresse :</string>
 
 </resources>

@@ -88,4 +88,25 @@
         android:layout_toRightOf="@+id/textView3"
         android:layout_alignRight="@+id/mdp"
         android:layout_alignEnd="@+id/mdp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/addr"
+        android:id="@+id/textView"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/textView12"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/addresse" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addresse"
+        android:layout_below="@+id/name"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_alignRight="@+id/name"
+        android:layout_alignEnd="@+id/name" />
 </RelativeLayout>

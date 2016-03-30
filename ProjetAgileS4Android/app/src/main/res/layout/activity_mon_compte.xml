@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Login :"
+        android:text="@string/login"
         android:id="@+id/textView10"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -56,9 +56,8 @@
         android:ems="10"
         android:id="@+id/editTextMdp"
         android:layout_alignTop="@+id/textView11"
-        android:layout_toEndOf="@+id/textView11"
         android:layout_toRightOf="@+id/textView11"
-        android:layout_alignBottom="@+id/textView11" />
+        android:layout_toEndOf="@+id/textView11" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -98,9 +97,8 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/editTextName"
-        android:layout_toRightOf="@+id/textView13"
-        android:layout_alignBottom="@+id/textView13"
         android:layout_alignTop="@+id/textView13"
+        android:layout_toRightOf="@+id/textView10"
         android:layout_alignRight="@+id/editTextMdp"
         android:layout_alignEnd="@+id/editTextMdp" />
 
@@ -112,7 +110,6 @@
         android:id="@+id/editTextAdress"
         android:layout_alignTop="@+id/textView14"
         android:layout_toRightOf="@+id/textView14"
-        android:layout_alignBottom="@+id/textView14"
         android:layout_alignRight="@+id/editTextName"
         android:layout_alignEnd="@+id/editTextName" />
 

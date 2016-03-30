@@ -1,19 +1,14 @@
 package fr.univ_lille1.iut_info.pohlem.projetagiles4android;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -25,8 +20,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Date;
 
 public class inscription extends AppCompatActivity {
 
@@ -64,12 +58,13 @@ public class inscription extends AppCompatActivity {
         final TextView tvLogin = (TextView) findViewById(R.id.login);
         final TextView tvMdp = (TextView) findViewById(R.id.mdp);
         final TextView tvName = (TextView) findViewById(R.id.name);
+        final TextView tvAddress = (TextView) findViewById(R.id.addresse);
         //load(tvLogin.getText().toString(), tvMdp.getText().toString(), tvName.getText().toString());
         isExisting(new VolleyCallBack() {
             @Override
             public void onSuccess(boolean result) {
                 if (!result)
-                    load(tvLogin.getText().toString(), tvMdp.getText().toString(), tvName.getText().toString());
+                    load(tvLogin.getText().toString(), tvMdp.getText().toString(), tvName.getText().toString(), tvAddress.getText().toString());
                 else
                     Toast.makeText(inscription.this, "ERREUR : le login '" + tvLogin.getText().toString() + "' existe déjà", Toast.LENGTH_SHORT).show();
             }
@@ -83,7 +78,7 @@ public class inscription extends AppCompatActivity {
     private void isExisting(final VolleyCallBack vcb) {
         final TextView tvLogin = (TextView) findViewById(R.id.login);
         RequestQueue queue = Volley.newRequestQueue(this);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://51.254.167.75/v1/userdb/"+tvLogin.getText().toString(),
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, getResources().getString(R.string.url) + getResources().getString(R.string.urlUser)+tvLogin.getText().toString(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String json) {
@@ -98,7 +93,7 @@ public class inscription extends AppCompatActivity {
         queue.add(stringRequest);
     }
 
-    private void load(final String login, final String passwd, final String name) {
+    private void load(final String login, final String passwd, final String name, final String address) {
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -106,26 +101,27 @@ public class inscription extends AppCompatActivity {
         try {
             js.put("name", name);
             js.put("alias", login);
-            js.put("password", Base64.encodeToString(passwd.getBytes(), Base64.DEFAULT));
-            js.put("adress", "0");
+            js.put("passwdHash", Base64.encodeToString(passwd.getBytes(), Base64.DEFAULT));
+            js.put("address", address);
             js.put("id", "0");
         }catch (JSONException e) {
             e.printStackTrace();
         }
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(
-                Request.Method.POST,"http://51.254.167.75/v1/userdb/", js,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Toast.makeText(inscription.this, "Compte créé", Toast.LENGTH_SHORT).show();
-                    }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(inscription.this, "ERROR: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            Request.Method.POST, getResources().getString(R.string.url) + getResources().getString(R.string.urlUser) +"?t=" + new Date().getTime(),
+            js,
+            new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Toast.makeText(inscription.this, "Compte créé", Toast.LENGTH_SHORT).show();
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(inscription.this, "ERROR: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
-        });
+        );
 
         queue.add(jsonObjReq);
     }

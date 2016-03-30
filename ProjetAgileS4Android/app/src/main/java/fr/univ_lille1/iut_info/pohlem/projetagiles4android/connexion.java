@@ -1,7 +1,6 @@
 package fr.univ_lille1.iut_info.pohlem.projetagiles4android;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +8,7 @@ import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.*;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -63,7 +62,7 @@ public class connexion extends AppCompatActivity {
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://51.254.167.75/v1/secure/onlylogged",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, getResources().getString(R.string.url)+getResources().getString(R.string.urlLogin),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String json) {
